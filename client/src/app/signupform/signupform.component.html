@@ -1,0 +1,17 @@
+<form >
+<div class="medium-6 cell">
+  <h2> Sign Up </h2>
+  <label> Username </label>
+  <input type="text" [(ngModel)]="formInfo.username" name="username"/>
+</div>
+
+  <br>
+
+<div class="medium-6 cell">
+  <label> Password </label>
+  <input type="password" aria-describedby="passwordHelpText" [(ngModel)]="formInfo.password" name="password"/>
+  <p class="help-text" id="passwordHelpText">Your password must have at least 10 characters, a number, and an Emoji.</p>
+</div>
+  <a role="button" aria-label="submit form" href="#" class="button small" (click)="signup()">Sign Up</a>
+</form>
+

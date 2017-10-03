@@ -1,0 +1,8 @@
+.homeTitle {
+    background-image: url("./images/viajeSorpresa.png");
+    background-size: cover;
+}
+
+h1, p {
+    color: gold;
+}
