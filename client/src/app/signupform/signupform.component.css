@@ -1,0 +1,9 @@
+form {
+  margin-left: 50px;
+}
+
+.container {
+  background-image: url("https://cdn.pixabay.com/photo/2016/01/09/18/28/old-1130743_960_720.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}

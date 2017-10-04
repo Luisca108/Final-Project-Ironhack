@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 import {routes} from './routes';
 import { SignupformComponent } from './signupform/signupform.component';
+import { TravelformComponent } from './travelform/travelform.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SignupformComponent } from './signupform/signupform.component';
     LoginformComponent,
     HomeComponent,
     UserprofileComponent,
-    SignupformComponent
+    SignupformComponent,
+    TravelformComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { SignupformComponent } from './signupform/signupform.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, IsLoggedInService],
+  providers: [AuthService, IsLoggedInService, AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
