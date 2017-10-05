@@ -14,6 +14,7 @@ export class TravelformComponent implements OnInit {
   }
 
   sendRequest () {
-    this.travelService.getTravels('origin', 'passengers', 'startDate', 'duration').subscribe(result => console.log(result))
+    this.travelService.getTravels('origin', 'passengers', 'startDate', 'duration')
+    .subscribe(result => console.log(result))
   }
 }
