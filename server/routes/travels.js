@@ -12,18 +12,17 @@ const rapid = new RapidAPI(
 
 
 router.post ("/search" , (req, res, next) => {
-console.log(req.body)
     rapid
   .call("GoogleFlightsAPI", "searchSingleTrip", {
     apiKey: "AIzaSyBC1L6z_WHLne1T7V8eIlyc878D4QY-Rp8",
-    origin: "MAD",
+    origin: req.body.origin,
     destination: "BOS",
-    passengersAdultCount: "2",
+    passengersAdultCount: req.body.passengers,
     passengersChildCount: "0",
-    fromDate: "2017-10-25 00:00:00"
+    fromDate: "2017-10-31 00:00:00"
   })
   .on("success", payload => {
-    res.status(200).json(req.payload);
+    res.status(200).json(payload);
   })
   .on("error", payload => {
     /*YOUR CODE GOES HERE*/

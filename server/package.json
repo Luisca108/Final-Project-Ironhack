@@ -19,6 +19,7 @@
     "mongo-connect": "0.0.6",
     "mongoose": "^4.11.13",
     "morgan": "~1.8.1",
+    "nodemon": "^1.12.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "rapidapi-connect": "0.0.6",

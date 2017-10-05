@@ -2,15 +2,35 @@
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="medium-6 cell">
-        <label>Input Label
-          <input type="text" placeholder=".medium-6.cell">
+        <label>Origin
+          <input type="text" [(ngModel)]="formInfo.origin" name="origin" placeholder=".medium-6.cell">
         </label>
       </div>
       <div class="medium-6 cell">
-        <label>Input Label
-          <input type="text" placeholder=".medium-6.cell">
+        <label>Passengers
+          <input type="number" [(ngModel)]="formInfo.passengers" name="passengers" value="0">
         </label>
       </div>
     </div>
   </div>
 </form>
+
+<!--Dates-->
+<table class="table">
+  <thead>
+    <tr>
+      <th>Start date&nbsp;
+      </th>
+      <th>End date&nbsp;
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <th><input id="startDate"type="date" [(ngModel)]="formInfo.startDate" name="startDate"></th>
+     <th><input id="endDate"type="date"></th>
+    </tr>
+  </tbody>
+</table>
+
+<button (click)="sendRequest()">Search</button>
