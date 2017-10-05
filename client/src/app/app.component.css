@@ -1,0 +1,12 @@
+.logoTitle {
+    position: relative;
+    color: black;
+    position: absolute;
+    margin-left: 40px;
+}
+
+img {
+    position: absolute;
+    width: 50px;
+    height: 45px;
+}

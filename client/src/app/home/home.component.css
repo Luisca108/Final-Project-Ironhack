@@ -1,0 +1,8 @@
+.homeTitle {
+    background-image: url("https://images.pexels.com/photos/105234/pexels-photo-105234.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb");
+    background-size: cover;
+}
+
+h1, p {
+    color: gold;
+}
