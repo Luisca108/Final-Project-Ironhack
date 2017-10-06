@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TravelService } from '../services/travel.service';
-import * as $ from 'jquery';
 
 
 @Component({
@@ -13,7 +12,9 @@ formInfo ={
   origin:"",
   passengers:"",
   startDate: "",
-  duration: ""
+  endDate: "",
+  maxPrice: "",
+  destination: ""
 }
   constructor(public travelService: TravelService) { }
 
@@ -23,7 +24,12 @@ formInfo ={
 
   sendRequest () {
     console.log(this.formInfo)
-    this.travelService.getTravels( this.formInfo.origin, this.formInfo.passengers, this.formInfo.startDate, this.formInfo.duration)
+    this.travelService.getTravels( this.formInfo.origin, 
+    this.formInfo.passengers,
+    this.formInfo.startDate,
+    this.formInfo.endDate,
+    this.formInfo.maxPrice,
+    this.formInfo.destination)
     .subscribe(result => console.log(result))
   
   }

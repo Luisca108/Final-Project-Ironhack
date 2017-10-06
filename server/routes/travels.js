@@ -16,10 +16,12 @@ router.post ("/search" , (req, res, next) => {
   .call("GoogleFlightsAPI", "searchSingleTrip", {
     apiKey: "AIzaSyBC1L6z_WHLne1T7V8eIlyc878D4QY-Rp8",
     origin: req.body.origin,
-    destination: "BOS",
+    destination: "BCN",
     passengersAdultCount: req.body.passengers,
     passengersChildCount: "0",
-    fromDate: "2017-10-31 00:00:00"
+    fromDate: req.body.startDate,
+    toDate: req.body.endDate,
+    maxPrice: req.body.maxPrice
   })
   .on("success", payload => {
     res.status(200).json(payload);
