@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgIf } from '@angular/common';
 import { TravelService } from '../services/travel.service';
 
 
@@ -7,6 +8,7 @@ import { TravelService } from '../services/travel.service';
   templateUrl: './travelform.component.html',
   styleUrls: ['./travelform.component.css']
 })
+
 export class TravelformComponent implements OnInit {
 formInfo ={ 
   origin:"",
@@ -15,20 +17,24 @@ formInfo ={
   endDate: "",
   maxPrice: ""
 }
+search:any
+
   constructor(public travelService: TravelService) { }
 
-  ngOnInit() {
-    
+  ngOnInit() {  
   }
 
   sendRequest () {
     console.log(this.formInfo)
-    this.travelService.getTravels( this.formInfo.origin, 
+    this.travelService.getTravels( 
+    this.formInfo.origin, 
     this.formInfo.passengers,
     this.formInfo.startDate,
     this.formInfo.endDate,
     this.formInfo.maxPrice)
-    .subscribe(result => console.log(result))
+    .subscribe(result => {
+      console.log(result);
+      this.search = result} )
   
   }
 }

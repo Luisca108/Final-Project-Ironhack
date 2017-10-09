@@ -9,15 +9,15 @@ const rapid = new RapidAPI(
   "8e59c8a7-7106-40fb-bdfa-f3e6b9833ab8"
 );
 
-const destinations = ['BCN', 'BER', "PAR", "VIE", "BRU", "SOF", "PRG", "CPH", "MRS", "MUC", "BUD", "ROM", "NAP", "AMS", "WAW", "LON", "STO"];
+const destinations = ['BCN', 'BER', "FRA", "VIE", "BRU", "ZRH", "PRG", "CPH", "MRS", "MUC", "BUD", "ROM", "NAP", "AMS", "WAW", "LON", "STO"];
 
 
 router.post ("/search" , (req, res, next) => {
   console.log(req.body);
   var i = Math.floor((Math.random()* destinations.length));
 console.log(destinations[i])
-rapid.call('GoogleFlightsAPI', 'searchSingleTrip', {
-  'apiKey': 'AIzaSyBC1L6z_WHLne1T7V8eIlyc878D4QY-Rp8',
+  rapid.call('GoogleFlightsAPI', 'searchSingleTrip', {
+    'apiKey': 'AIzaSyBC1L6z_WHLne1T7V8eIlyc878D4QY-Rp8',
     origin: req.body.origin,
     destination: destinations[i],
     passengersAdultCount: req.body.passengers,
@@ -27,7 +27,47 @@ rapid.call('GoogleFlightsAPI', 'searchSingleTrip', {
     maxPrice: req.body.maxPrice
   })
   .on("success", payload => {
-    res.status(200).json(payload)
+    console.log(payload.trips.tripOption[0].saleTotal)
+
+    i = Math.floor((Math.random() * destinations.length));
+    console.log("segunda busqueda a " + destinations[i])
+    rapid.call('GoogleFlightsAPI', 'searchSingleTrip', {
+      'apiKey': 'AIzaSyBC1L6z_WHLne1T7V8eIlyc878D4QY-Rp8',
+      origin: req.body.origin,
+      destination: destinations[i],
+      passengersAdultCount: req.body.passengers,
+      passengersChildCount: "0",
+      fromDate: req.body.startDate,
+      toDate: req.body.endDate,
+      maxPrice: req.body.maxPrice
+    })
+      .on("success", payload2 => {
+        console.log(payload2.trips.tripOption[0].saleTotal)
+        i = Math.floor((Math.random() * destinations.length));
+        console.log("tercera busqueda a " + destinations[i])
+            rapid.call('GoogleFlightsAPI', 'searchSingleTrip', {
+      'apiKey': 'AIzaSyBC1L6z_WHLne1T7V8eIlyc878D4QY-Rp8',
+      origin: req.body.origin,
+      destination: destinations[i],
+      passengersAdultCount: req.body.passengers,
+      passengersChildCount: "0",
+      fromDate: req.body.startDate,
+      toDate: req.body.endDate,
+      maxPrice: req.body.maxPrice
+    })
+      .on("success", payload3 => {
+        
+        console.log(payload3.trips.tripOption[0].saleTotal)
+        res.status(200).json(payload.trips.tripOption[0].saleTotal, payloa2.trips.tripOption[0].saleTotal, payload3.trips.tripOption[0].saleTotal )
+      })
+      .on("error", payload3 => {
+        res.status(500).json(payload)
+      });
+      })
+      .on("error", payload2 => {
+        res.status(500).json(payload)
+      });
+
   })
   .on("error", payload => {
     res.status(500).json(payload)

@@ -20,7 +20,7 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin-left: 46%;
+    margin-left: 44%;
     margin-top: 160px;
 }
 
@@ -61,4 +61,123 @@ label {
 .origin {
     margin-left: 30px;
     padding-top: 50px;
+}
+
+
+.container2 {
+    background-image: url("https://images.unsplash.com/photo-1456298503910-3568b93bb965?dpr=1&auto=compress,format&fit=crop&w=1567&h=&q=80&cs=tinysrgb&crop=");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.80;
+}
+
+.container2Title {
+  font-family: 'Lobster', cursive;
+  text-align: center;
+}
+
+.icons {
+  margin-left: 150px;
+  margin-top: 50px;
+}
+
+.fa-gift {
+  color: goldenrod;
+  margin-left: 200px;
+}
+
+
+/* cards!! */
+
+.card1 {
+    margin-top: 20px;
+    margin-left: 200px;
+    width: 170px;
+}
+
+.card2 {
+    margin-left: 540px;
+    margin-top: -210px;
+    width: 170px;
+}
+
+.card3 {
+    width: 170px;
+    margin-left: 900px;
+    margin-top: -215px;
+}
+
+.event:before {
+  content: '';
+  display: block;
+  width: 295px;
+  height: 70px;
+  background: #fff;
+  border: 2px solid #1583cc;
+  border-radius: 2px;
+  transform: rotate(2deg);
+  position: relative;
+  top: 12px;
+  left: 2px;
+  z-index: -1;
+}
+
+.event:after {
+  content: '';
+  display: block;
+  width: 295px;
+  height: 75px;
+  background: #fff;
+  border: 2px solid #1583cc;
+  border-radius: 2px;
+  transform: rotate(-2deg);
+  position: relative;
+  top: -136px;
+  z-index: -2;
+}
+
+.event>span {
+  display: block;
+  width: 30px;
+  background: #232323;
+  position: relative;
+  top: -55px;
+  left: -15px;
+  /* Text */
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 7px;
+  text-align: right;
+}
+
+.event>.info {
+  display: inline-block;
+  position: relative;
+  top: -75px;
+  left: 40px;
+  /* Text */
+  color: #232323;
+  font-weight: 600;
+  line-height: 25px;
+}
+
+.event>.info:first-line {
+  text-transform: uppercase;
+  font-size: 10px;
+  margin: 10px 0 0 0;
+  font-weight: 700;
+}
+
+.event>.price {
+  display: inline-block;
+  width: 60px;
+  position: relative;
+  top: -85px;
+  left: 115px;
+  /* Text */
+  color: #E35354;
+  text-align: center;
+  font-weight: 700;
 }
