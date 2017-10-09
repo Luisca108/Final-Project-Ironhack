@@ -1,16 +1,18 @@
 .titles {
-    background-color: lightskyblue;
+    background-color: #1583cc;
+    font-weight: 200;
+
 }
 
 table {
-    border: 2px solid lightslategray;
+    border: 2px solid #1583cc;
     position: absolute;
-    margin-left: 800px;
-    margin-top: -135px;
+    margin-left: 35%;
 }
 
 button {
-    background-color: lightseagreen;
+    background-color: #1583cc;
+
     border: none;
     color: white;
     padding: 15px 32px;
@@ -18,4 +20,45 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin-left: 46%;
+    margin-top: 160px;
+}
+
+.container {
+    background-image: url("https://images.unsplash.com/photo-1451854216587-d26eb5ce00c3?dpr=1&auto=compress,format&fit=crop&w=1490&h=&q=80&cs=tinysrgb&crop=");
+    height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.80;
+}
+
+label {
+    color: #1583cc;
+    font-family: 'Lobster', cursive;
+    font-size: x-large;
+}
+
+.help-text {
+    font-family: 'Lobster', cursive;
+    color: black;
+    font-size: medium;
+}
+
+.passengers {
+    position: absolute;
+    left: 38%;
+    margin-top: -155px;
+}
+
+.maxPrice {
+    position: absolute;
+    right: 30px;
+    margin-top: -155px;
+}
+
+.origin {
+    margin-left: 30px;
+    padding-top: 50px;
 }

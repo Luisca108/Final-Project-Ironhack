@@ -24,10 +24,10 @@ export class TravelService {
 
   
 
-  getTravels(origin, passengers, startDate, endDate, maxPrice, destination) {
+  getTravels(origin, passengers, startDate, endDate, maxPrice) {
     console.log("entrooo");
     return this.http
-      .post(`${BASEURL}/travels/search`, {origin, passengers, startDate, endDate, maxPrice, destination })
+      .post(`${BASEURL}/travels/search`, {origin, passengers, startDate, endDate, maxPrice })
       .map(res => res.json())
       .catch(this.handleError);
   }

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -57,6 +58,10 @@ app.use(passport.session());
 
 app.use('/auth', authRoutes);
 app.use('/travels', travelRoutes);
+
+app.use((req, res, next ) => {
+ res.sendfile(__dirname + '/public/index.html');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

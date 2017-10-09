@@ -13,8 +13,7 @@ formInfo ={
   passengers:"",
   startDate: "",
   endDate: "",
-  maxPrice: "",
-  destination: ""
+  maxPrice: ""
 }
   constructor(public travelService: TravelService) { }
 
@@ -28,8 +27,7 @@ formInfo ={
     this.formInfo.passengers,
     this.formInfo.startDate,
     this.formInfo.endDate,
-    this.formInfo.maxPrice,
-    this.formInfo.destination)
+    this.formInfo.maxPrice)
     .subscribe(result => console.log(result))
   
   }

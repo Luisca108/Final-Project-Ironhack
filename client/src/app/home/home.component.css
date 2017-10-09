@@ -1,8 +1,29 @@
 .homeTitle {
-    background-image: url("https://images.pexels.com/photos/105234/pexels-photo-105234.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb");
+    /* background-image: url("https://images.pexels.com/photos/105234/pexels-photo-105234.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb"); */
+    background-image: url("https://images.unsplash.com/photo-1415125721330-116ba2f81152?dpr=1&auto=compress,format&fit=crop&w=1500&h=&q=80&cs=tinysrgb&crop=");
     background-size: cover;
+    height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.80;
 }
 
-h1, p {
-    color: gold;
+h1 {
+    /* color: #1585cf; */
+    color: black;
+    margin-top: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 59px;
+}
+
+p {
+    color: black;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.hollow {
+    border: 2px solid #1585cf;
 }

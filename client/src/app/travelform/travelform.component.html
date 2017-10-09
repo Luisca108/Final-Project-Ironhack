@@ -1,24 +1,27 @@
+<div class="container">
 <form>
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
-      <div class="medium-6 cell">
+
+      <div class="small-3 cell origin">
         <label>Origin
           <input type="text" [(ngModel)]="formInfo.origin" name="origin">
           <p class="help-text" id="passwordHelpText">The departure city. 3-digit code IATA format, for example: MAD - Madrid</p>
         </label>
       </div>
-      <div class="medium-6 cell">
+      <div class="small-3 cell passengers">
         <label>Passengers
           <input type="number" [(ngModel)]="formInfo.passengers" name="passengers" value="0">
           <p class="help-text" id="passwordHelpText">The number of passengers</p>
         </label>
       </div>
-      <div class="medium-6 cell">
+      <div class="small-3 cell maxPrice">
         <label>Max Price
           <input type="text" [(ngModel)]="formInfo.maxPrice" name="maxPrice">
           <p class="help-text" id="passwordHelpText"> Example ( EUR355.50 ) ( USD505.00 )</p>
         </label>
       </div>
+      
     </div>
   </div>
 </form>
@@ -39,4 +42,5 @@
   </tbody>
 </table>
 
-<button (click)="sendRequest()">Search</button>
+ <button (click)="sendRequest()">Search</button>
+</div>

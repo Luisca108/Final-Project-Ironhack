@@ -10,3 +10,27 @@ img {
     width: 50px;
     height: 45px;
 }
+
+.top-bar {
+    /* background-color: #f5f5ef; */
+    background-color: #1585cf;
+
+
+}
+
+.menu {
+    background: #1585cf;
+
+
+}
+
+a {
+    font-family: 'Montserrat',sans-serif;
+    color: white;
+    font-size: 14px;
+
+}
+
+.logoTitle {
+    color: white;
+}
