@@ -60,7 +60,7 @@ app.use('/auth', authRoutes);
 app.use('/travels', travelRoutes);
 
 app.use((req, res, next ) => {
- res.sendfile(__dirname + '/public/index.html');
+  req.sendFile(__dirname + './public/index.html');
 });
 
 // catch 404 and forward to error handler

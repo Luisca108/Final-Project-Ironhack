@@ -21,7 +21,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".logoTitle {\n    position: relative;\n    color: black;\n    position: absolute;\n    margin-left: 40px;\n}\n\nimg {\n    position: absolute;\n    width: 50px;\n    height: 45px;\n}", ""]);
+exports.push([module.i, ".logoTitle {\n    position: relative;\n    color: black;\n    position: absolute;\n    margin-left: 40px;\n}\n\nimg {\n    position: absolute;\n    width: 50px;\n    height: 45px;\n}\n\n.top-bar {\n    background-color: #1585cf;\n}\n\n.menu {\n    background: #1585cf;\n\n\n}\n\na {\n    font-family: 'Montserrat',sans-serif;\n    color: white;\n    font-size: 14px;\n\n}\n\n.logoTitle {\n    color: white;\n}", ""]);
 
 // exports
 
@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<!-- Start Top Bar -->\n<div class=\"top-bar\">\n  <div class=\"top-bar-left\">\n    <ul class=\"menu\">\n     <img src=\"https://upload.wikimedia.org/wikipedia/en/f/fc/Hogeschool_van_amsterdam_logo.svg\" alt=\"logo\">\n      <li><a class=\"menu-text\" class=\"logoTitle\" [routerLink]=\"['/']\">Surprise Box!</a></li>\n    </ul>\n  </div>\n  <div class=\"top-bar-right\">\n    <ul class=\"menu\">\n      <li><a [routerLink]=\"['/signup']\">Sign Up</a></li>\n      <li><a [routerLink]=\"['/login']\">Login</a></li>\n      <li><a [routerLink]=\"['/user']\">User Profile</a></li>\n    </ul>\n  </div>\n</div>\n<router-outlet></router-outlet>\n<!-- End Top Bar -->\n"
+module.exports = "\n<!-- Start Top Bar -->\n<div class=\"top-bar\">\n  <div class=\"top-bar-left\">\n    <ul class=\"menu\">\n     <img src=\"https://upload.wikimedia.org/wikipedia/en/f/fc/Hogeschool_van_amsterdam_logo.svg\" alt=\"logo\">\n      <li><a class=\"menu-text\" class=\"logoTitle\" [routerLink]=\"['/']\">Surprise Box!</a></li>\n    </ul>\n  </div>\n  <div class=\"top-bar-right\">\n    <ul class=\"menu\">\n      <li><a [routerLink]=\"['/signup']\">Sign Up</a></li>\n      <li><a [routerLink]=\"['/login']\">Login</a></li>\n      <li><a [routerLink]=\"['/user']\">User Profile</a></li>\n    </ul>\n  </div>\n</div>\n<router-outlet></router-outlet>\n<!-- End Top Bar -->"
 
 /***/ }),
 
@@ -156,7 +156,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".homeTitle {\n    background-image: url(\"https://images.pexels.com/photos/105234/pexels-photo-105234.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb\");\n    background-size: cover;\n}\n\nh1, p {\n    color: gold;\n}", ""]);
+exports.push([module.i, ".homeTitle {\n    /* background-image: url(\"https://images.pexels.com/photos/105234/pexels-photo-105234.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb\"); */\n    background-image: url(\"https://images.unsplash.com/photo-1415125721330-116ba2f81152?dpr=1&auto=compress,format&fit=crop&w=1500&h=&q=80&cs=tinysrgb&crop=\");\n    background-size: cover;\n    height: 500px;\n    background-attachment: fixed;\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    opacity: 0.80;\n}\n\nh1 {\n    /* color: #1585cf; */\n    color: black;\n    margin-top: 50px;\n    font-family: 'Montserrat', sans-serif;\n    font-size: 59px;\n}\n\np {\n    color: black;\n    font-size: 30px;\n    font-weight: 500;\n}\n\n.hollow {\n    border: 2px solid #1585cf;\n}\n", ""]);
 
 // exports
 
@@ -169,7 +169,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"callout large\" class=\"homeTitle\">\n    <div class=\"row column text-center\">\n        <h1>{{title}}!</h1>\n        <p class=\"lead\">Discover your next trip two days before traveling!</p>\n        <a href=\"#\" class=\"button large\">Learn More</a>\n        <a href=\"#\" class=\"button large hollow\">Learn Less</a>\n    </div>\n</div>\n\n<app-travelform></app-travelform>\n"
+module.exports = "<div class=\"callout large\" class=\"homeTitle\">\n    <div class=\"row column text-center\">\n        <h1>{{title}}!</h1>\n        <p class=\"lead\"><em>Discover your next trip two days before traveling!</em></p>\n        <a href=\"#\" class=\"button large\">Learn More</a>\n        <!-- <a href=\"#\" class=\"button large hollow\">Learn Less</a> -->\n    </div>\n</div>\n\n<app-travelform></app-travelform>\n"
 
 /***/ }),
 
@@ -487,10 +487,10 @@ var TravelService = (function () {
         console.log("AUTH ERROR");
         return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].throw(e.json().message);
     };
-    TravelService.prototype.getTravels = function (origin, passengers, startDate, endDate, maxPrice, destination) {
+    TravelService.prototype.getTravels = function (origin, passengers, startDate, endDate, maxPrice) {
         console.log("entrooo");
         return this.http
-            .post(BASEURL + "/travels/search", { origin: origin, passengers: passengers, startDate: startDate, endDate: endDate, maxPrice: maxPrice, destination: destination })
+            .post(BASEURL + "/travels/search", { origin: origin, passengers: passengers, startDate: startDate, endDate: endDate, maxPrice: maxPrice })
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
@@ -595,7 +595,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".titles {\n    background-color: lightskyblue;\n}\n\ntable {\n    border: 2px solid lightslategray;\n    position: absolute;\n    margin-left: 800px;\n    margin-top: -135px;\n}\n\nbutton {\n    background-color: lightseagreen;\n    border: none;\n    color: white;\n    padding: 15px 32px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 16px;\n}", ""]);
+exports.push([module.i, ".titles {\n    background-color: #1583cc;\n    font-weight: 200;\n\n}\n\ntable {\n    border: 2px solid #1583cc;\n    position: absolute;\n    margin-left: 35%;\n}\n\nbutton {\n    background-color: #1583cc;\n\n    border: none;\n    color: white;\n    padding: 15px 32px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 16px;\n    margin-left: 44%;\n    margin-top: 160px;\n}\n\n.container {\n    background-image: url(\"https://images.unsplash.com/photo-1451854216587-d26eb5ce00c3?dpr=1&auto=compress,format&fit=crop&w=1490&h=&q=80&cs=tinysrgb&crop=\");\n    height: 500px;\n    background-attachment: fixed;\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    opacity: 0.80;\n}\n\nlabel {\n    color: #1583cc;\n    font-family: 'Lobster', cursive;\n    font-size: x-large;\n}\n\n.help-text {\n    font-family: 'Lobster', cursive;\n    color: black;\n    font-size: medium;\n}\n\n.passengers {\n    position: absolute;\n    left: 38%;\n    margin-top: -155px;\n}\n\n.maxPrice {\n    position: absolute;\n    right: 30px;\n    margin-top: -155px;\n}\n\n.origin {\n    margin-left: 30px;\n    padding-top: 50px;\n}\n\n\n.container2 {\n    background-image: url(\"https://images.unsplash.com/photo-1456298503910-3568b93bb965?dpr=1&auto=compress,format&fit=crop&w=1567&h=&q=80&cs=tinysrgb&crop=\");\n    background-attachment: fixed;\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    opacity: 0.80;\n}\n\n.container2Title {\n  font-family: 'Lobster', cursive;\n  text-align: center;\n}\n\n.icons {\n  margin-left: 150px;\n  margin-top: 50px;\n}\n\n.fa-gift {\n  color: goldenrod;\n  margin-left: 200px;\n}\n\n\n/* cards!! */\n\n.card1 {\n    margin-top: 20px;\n    margin-left: 200px;\n    width: 170px;\n}\n\n.card2 {\n    margin-left: 540px;\n    margin-top: -210px;\n    width: 170px;\n}\n\n.card3 {\n    width: 170px;\n    margin-left: 900px;\n    margin-top: -215px;\n}\n\n.event:before {\n  content: '';\n  display: block;\n  width: 295px;\n  height: 70px;\n  background: #fff;\n  border: 2px solid #1583cc;\n  border-radius: 2px;\n  -webkit-transform: rotate(2deg);\n          transform: rotate(2deg);\n  position: relative;\n  top: 12px;\n  left: 2px;\n  z-index: -1;\n}\n\n.event:after {\n  content: '';\n  display: block;\n  width: 295px;\n  height: 75px;\n  background: #fff;\n  border: 2px solid #1583cc;\n  border-radius: 2px;\n  -webkit-transform: rotate(-2deg);\n          transform: rotate(-2deg);\n  position: relative;\n  top: -136px;\n  z-index: -2;\n}\n\n.event>span {\n  display: block;\n  width: 30px;\n  background: #232323;\n  position: relative;\n  top: -55px;\n  left: -15px;\n  /* Text */\n  color: #fff;\n  font-size: 10px;\n  padding: 2px 7px;\n  text-align: right;\n}\n\n.event>.info {\n  display: inline-block;\n  position: relative;\n  top: -75px;\n  left: 40px;\n  /* Text */\n  color: #232323;\n  font-weight: 600;\n  line-height: 25px;\n}\n\n.event>.info:first-line {\n  text-transform: uppercase;\n  font-size: 10px;\n  margin: 10px 0 0 0;\n  font-weight: 700;\n}\n\n.event>.price {\n  display: inline-block;\n  width: 60px;\n  position: relative;\n  top: -85px;\n  left: 115px;\n  /* Text */\n  color: #E35354;\n  text-align: center;\n  font-weight: 700;\n}\n", ""]);
 
 // exports
 
@@ -608,7 +608,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/travelform/travelform.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form>\n  <div class=\"grid-container\">\n    <div class=\"grid-x grid-padding-x\">\n      <div class=\"medium-6 cell\">\n        <label>Origin\n          <input type=\"text\" [(ngModel)]=\"formInfo.origin\" name=\"origin\">\n          <p class=\"help-text\" id=\"passwordHelpText\">The departure city. 3-digit code IATA format, for example: MAD - Madrid</p>\n        </label>\n      </div>\n      <div class=\"medium-6 cell\">\n        <label>Passengers\n          <input type=\"number\" [(ngModel)]=\"formInfo.passengers\" name=\"passengers\" value=\"0\">\n          <p class=\"help-text\" id=\"passwordHelpText\">The number of passengers</p>\n        </label>\n      </div>\n      <div class=\"medium-6 cell\">\n        <label>Max Price\n          <input type=\"text\" [(ngModel)]=\"formInfo.maxPrice\" name=\"maxPrice\">\n          <p class=\"help-text\" id=\"passwordHelpText\"> Example ( EUR355.50 ) ( USD505.00 )</p>\n        </label>\n      </div>\n    </div>\n  </div>\n</form>\n\n<!--Dates-->\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th class=\"titles\">Start date</th>\n      <th class=\"titles\">End date</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n     <th><input id=\"startDate\"type=\"date\" [(ngModel)]=\"formInfo.startDate\" name=\"startDate\"></th>\n     <th><input id=\"endDate\"type=\"date\" [(ngModel)]=\"formInfo.endDate\" name=\"endDate\"></th>\n    </tr>\n  </tbody>\n</table>\n\n<button (click)=\"sendRequest()\">Search</button>\n"
+module.exports = "<div class=\"container\">\n<form>\n  <div class=\"grid-container\">\n    <div class=\"grid-x grid-padding-x\">\n\n      <div class=\"small-3 cell origin\">\n        <label>Origin\n          <input type=\"text\" [(ngModel)]=\"formInfo.origin\" name=\"origin\">\n          <p class=\"help-text\" id=\"passwordHelpText\">The departure city. 3-digit code IATA format, for example: MAD - Madrid</p>\n        </label>\n      </div>\n      <div class=\"small-3 cell passengers\">\n        <label>Passengers\n          <input type=\"number\" [(ngModel)]=\"formInfo.passengers\" name=\"passengers\" value=\"0\">\n          <p class=\"help-text\" id=\"passwordHelpText\">The number of passengers</p>\n        </label>\n      </div>\n      <div class=\"small-3 cell maxPrice\">\n        <label>Max Price\n          <input type=\"text\" [(ngModel)]=\"formInfo.maxPrice\" name=\"maxPrice\">\n          <p class=\"help-text\" id=\"passwordHelpText\"> Example ( EUR355.50 ) ( USD505.00 )</p>\n        </label>\n      </div>\n      \n    </div>\n  </div>\n</form>\n\n<!--Dates-->\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th class=\"titles\">Start date</th>\n      <th class=\"titles\">End date</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n     <th><input id=\"startDate\"type=\"date\" [(ngModel)]=\"formInfo.startDate\" name=\"startDate\"></th>\n     <th><input id=\"endDate\"type=\"date\" [(ngModel)]=\"formInfo.endDate\" name=\"endDate\"></th>\n    </tr>\n  </tbody>\n</table>\n\n <button (click)=\"sendRequest()\">Get my surprise!</button>\n \n</div>\n\n <!--3 opciones de precios y sorpresa-->\n\n<!-- <div *ngIf=\"search\">\n  <p>{{search.a}}</p>\n  <p>{{search.b}}</p>\n  <p>{{search.c}}</p>\n</div> -->\n\n<div class=\"container2\">\n  <h1 class=\"container2Title\"><em>Now choose one of this surprises!!</em></h1>\n  <div class=\"icons\"> \n  <i class=\"fa fa-gift fa-5x\" aria-hidden=\"true\"></i>\n  <i class=\"fa fa-gift fa-5x\" aria-hidden=\"true\"></i>\n  <i class=\"fa fa-gift fa-5x\" aria-hidden=\"true\"></i>\n  </div>\n\n <div class=\"card1\">\n  <div class=\"event\">\n    <span>#001</span>\n    <div class=\"info\">\n      MAY 21, 2013\n      <br/> Surprise #1!\n    </div>\n    <div class=\"price\">\n      $600\n    </div>\n  </div>\n </div>\n\n <div class=\"card2\">\n  <div class=\"event\">\n    <span>#002</span>\n    <div class=\"info\">\n      MAY 24, 2013\n      <br/> Surprise #2\n    </div>\n    <div class=\"price\">\n      $650\n    </div>\n  </div>\n </div>\n\n  <div class=\"card3\">\n    <div class=\"event\">\n      <span>#003</span>\n      <div class=\"info\">\n        MAY 24, 2013\n        <br/> Surprise #3\n      </div>\n      <div class=\"price\">\n        $650\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -638,16 +638,19 @@ var TravelformComponent = (function () {
             passengers: "",
             startDate: "",
             endDate: "",
-            maxPrice: "",
-            destination: ""
+            maxPrice: ""
         };
     }
     TravelformComponent.prototype.ngOnInit = function () {
     };
     TravelformComponent.prototype.sendRequest = function () {
+        var _this = this;
         console.log(this.formInfo);
-        this.travelService.getTravels(this.formInfo.origin, this.formInfo.passengers, this.formInfo.startDate, this.formInfo.endDate, this.formInfo.maxPrice, this.formInfo.destination)
-            .subscribe(function (result) { return console.log(result); });
+        this.travelService.getTravels(this.formInfo.origin, this.formInfo.passengers, this.formInfo.startDate, this.formInfo.endDate, this.formInfo.maxPrice)
+            .subscribe(function (result) {
+            console.log(result);
+            _this.search = result;
+        });
     };
     return TravelformComponent;
 }());
