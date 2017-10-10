@@ -19,6 +19,7 @@ formInfo ={
 }
 search:any
 
+
   constructor(public travelService: TravelService) { }
 
   ngOnInit() {  
@@ -34,7 +35,6 @@ search:any
     this.formInfo.maxPrice)
     .subscribe(result => {
       console.log(result);
-      this.search = result} )
-  
+      this.search = result; });
   }
 }

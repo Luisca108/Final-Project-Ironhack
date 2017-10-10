@@ -48,13 +48,7 @@
 
  <!--3 opciones de precios y sorpresa-->
 
-<!-- <div *ngIf="search">
-  <p>{{search.a}}</p>
-  <p>{{search.b}}</p>
-  <p>{{search.c}}</p>
-</div> -->
-
-<div class="container2">
+<div *ngIf='search' class="container2">
   <h1 class="container2Title"><em>Now choose one of this surprises!!</em></h1>
   <div class="icons"> 
   <i class="fa fa-gift fa-5x" aria-hidden="true"></i>
@@ -70,7 +64,7 @@
       <br/> Surprise #1!
     </div>
     <div class="price">
-      $600
+      {{search[0]}}
     </div>
   </div>
  </div>
@@ -83,7 +77,7 @@
       <br/> Surprise #2
     </div>
     <div class="price">
-      $650
+      {{search[1]}}
     </div>
   </div>
  </div>
@@ -96,7 +90,7 @@
         <br/> Surprise #3
       </div>
       <div class="price">
-        $650
+         {{search[2]}}
       </div>
     </div>
   </div>

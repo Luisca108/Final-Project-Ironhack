@@ -10,7 +10,7 @@ const rapid = new RapidAPI(
 );
 
 const destinations = ['BCN', 'BER', "FRA", "VIE", "BRU", "ZRH", "PRG", "CPH", "MRS", "MUC", "BUD", "ROM", "NAP", "AMS", "WAW", "LON", "STO"];
-
+var result =[]
 
 router.post ("/search" , (req, res, next) => {
   console.log(req.body);
@@ -56,9 +56,10 @@ console.log(destinations[i])
       maxPrice: req.body.maxPrice
     })
       .on("success", payload3 => {
-        
-        console.log(payload3.trips.tripOption[0].saleTotal)
-        res.status(200).json(payload.trips.tripOption[0].saleTotal, payloa2.trips.tripOption[0].saleTotal, payload3.trips.tripOption[0].saleTotal )
+        result = []
+        result.push(payload.trips.tripOption[0].saleTotal, payload2.trips.tripOption[0].saleTotal, payload3.trips.tripOption[0].saleTotal)
+        console.log(result)
+        res.status(200).json(result)
       })
       .on("error", payload3 => {
         res.status(500).json(payload)
