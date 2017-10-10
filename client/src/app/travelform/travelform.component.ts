@@ -3,6 +3,7 @@ import { NgIf } from '@angular/common';
 import { TravelService } from '../services/travel.service';
 
 
+
 @Component({
   selector: 'app-travelform',
   templateUrl: './travelform.component.html',
@@ -10,24 +11,23 @@ import { TravelService } from '../services/travel.service';
 })
 
 export class TravelformComponent implements OnInit {
-formInfo ={ 
-  origin:"",
-  passengers:"",
-  startDate: "",
-  endDate: "",
-  maxPrice: ""
-}
-search:any
-
+formInfo = {
+  origin: '',
+  passengers: '',
+  startDate: '',
+  endDate: '',
+  maxPrice: ''
+};
+haveFlight: boolean = false;
+search: any;
 
   constructor(public travelService: TravelService) { }
 
-  ngOnInit() {  
-  }
+  ngOnInit() {}
 
   sendRequest () {
-    console.log(this.formInfo)
-    this.travelService.getTravels( 
+    console.log(this.formInfo);
+    this.travelService.getTravels ( 
     this.formInfo.origin, 
     this.formInfo.passengers,
     this.formInfo.startDate,
@@ -35,6 +35,7 @@ search:any
     this.formInfo.maxPrice)
     .subscribe(result => {
       console.log(result);
-      this.search = result; });
+      this.search = result;
+      this.haveFlight = true; });
   }
 }

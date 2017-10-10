@@ -46,9 +46,14 @@
  
 </div>
 
- <!--3 opciones de precios y sorpresa-->
+<!--loading button-->
 
-<div *ngIf='search' class="container2">
+      <div *ngIf='haveFlight; else' class="help">
+        <i class="fa fa-plane fa-3x" aria-hidden="true"></i>
+      </div>
+
+ <!--3 opciones de precios y sorpresa-->
+<div *ngIf='search; else !haveFlight ' class="container2">
   <h1 class="container2Title"><em>Now choose one of this surprises!!</em></h1>
   <div class="icons"> 
   <i class="fa fa-gift fa-5x" aria-hidden="true"></i>
