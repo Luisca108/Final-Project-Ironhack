@@ -14,6 +14,8 @@ import {routes} from './routes';
 import { SignupformComponent } from './signupform/signupform.component';
 import { TravelformComponent } from './travelform/travelform.component';
 import {TravelService} from './services/travel.service';
+import { MailComponent } from './mail/mail.component';
+import { MailService } from './services/mail.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import {TravelService} from './services/travel.service';
     HomeComponent,
     UserprofileComponent,
     SignupformComponent,
-    TravelformComponent
+    TravelformComponent,
+    MailComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import {TravelService} from './services/travel.service';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, IsLoggedInService, TravelService],
+  providers: [AuthService, IsLoggedInService, TravelService, MailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,8 @@
-import { Injectable, EventEmitter } from "@angular/core";
-import { Observable } from "rxjs/Observable";
-import { Http } from "@angular/http";
-import "rxjs";
-import { environment } from "../../environments/environment";
+import { Injectable, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Http } from '@angular/http';
+import 'rxjs';
+import { environment } from '../../environments/environment';
 
 const BASEURL = environment.BASEURL ;
 
@@ -18,14 +18,12 @@ export class TravelService {
 
 
   private handleError(e) {
-    console.log("AUTH ERROR");
+    console.log('AUTH ERROR');
     return Observable.throw(e.json().message);
   }
 
-  
-
   getTravels(origin, passengers, startDate, endDate, maxPrice) {
-    console.log("entrooo");
+    console.log('entrooo');
     return this.http
       .post(`${BASEURL}/travels/search`, {origin, passengers, startDate, endDate, maxPrice })
       .map(res => res.json())

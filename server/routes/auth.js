@@ -4,8 +4,43 @@ const path = require('path');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const debug = require('debug')("angularauth:"+path.basename(__filename).split('.')[0]);
+const nodemailer = require('nodemailer');
 
 var authRoutes = express.Router();
+
+/*email sender */
+
+authRoutes.post('/sayHello', handleSayHello); // handle the route at yourdomain.com/sayHello
+
+function handleSayHello(req, res) {
+  var text = 'Hello world from \n\n' + req.body.name;
+  // Not the movie transporter!
+  var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: 'surprisetrip108@gmail.com', // Your email id
+      pass: 'ironhack12345' // Your password
+    }
+  });
+  var mailOptions = {
+    from: 'surprisetrip108@gmail.com', // sender address
+    to: req.body.email, // list of receivers
+    subject: 'Email Example', // Subject line
+    text: text //, // plaintext body
+    // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+      res.json({ yo: 'error' });
+    } else {
+      console.log('Message sent: ' + info.response);
+      res.json({ yo: info.response });
+    };
+  });
+}
+
 
 /* GET home page. */
 authRoutes.post('/signup', (req, res, next) => {

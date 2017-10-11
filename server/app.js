@@ -11,6 +11,7 @@ const bodyParser = require('body-parser');
 const debug = require('debug')("angularauth:"+path.basename(__filename).split('.')[0]);
 const authRoutes = require('./routes/auth');
 const travelRoutes = require("./routes/travels");
+const mailRoutes = require("./routes/mail");
 const mongoose = require('mongoose');
 const cors = require('cors');
 
@@ -58,6 +59,7 @@ app.use(passport.session());
 
 app.use('/auth', authRoutes);
 app.use('/travels', travelRoutes);
+app.use('/mails', mailRoutes);
 
 app.use((req, res, next ) => {
   req.sendFile(__dirname + './public/index.html');
