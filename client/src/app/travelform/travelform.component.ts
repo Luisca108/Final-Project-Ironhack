@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { TravelService } from '../services/travel.service';
-
+import * as $ from 'jquery';
 
 
 @Component({
@@ -27,6 +27,7 @@ search: any;
 
   sendRequest () {
     console.log(this.formInfo);
+    this.haveFlight = true;
     this.travelService.getTravels ( 
     this.formInfo.origin, 
     this.formInfo.passengers,
@@ -36,6 +37,6 @@ search: any;
     .subscribe(result => {
       console.log(result);
       this.search = result;
-      this.haveFlight = true; });
+      this.haveFlight = false; });
   }
 }
