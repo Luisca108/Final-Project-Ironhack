@@ -4,7 +4,13 @@ form {
 
 
 .container {
-  background-image: url("https://cdn.pixabay.com/photo/2016/01/09/18/28/old-1130743_960_720.jpg");
+  background-image: url("http://thekitemap.com/images/feedback-img.jpg");
   background-size: cover;
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.80;
+
 }

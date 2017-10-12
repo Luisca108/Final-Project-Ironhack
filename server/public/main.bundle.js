@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<!-- Start Top Bar -->\n<div class=\"top-bar\">\n  <div class=\"top-bar-left\">\n    <ul class=\"menu toggle-topbar\">\n      <li><a class=\"menu-text\" class=\"logoTitle\" [routerLink]=\"['/']\">Surprise Box!</a></li>\n    </ul>\n  </div>\n  <img src=\"http://theinspirationroom.com/daily/design/2015/9/google_travel_logo.png\" alt=\"logo\">\n  <div class=\"top-bar-right menu align-right\">\n    <ul class=\"menu\">\n      <li><a [routerLink]=\"['/signup']\">Sign Up</a></li>\n      <li><a [routerLink]=\"['/login']\">Login</a></li>\n      <li><a [routerLink]=\"['/user']\">User Profile</a></li>\n    </ul>\n  </div>\n</div>\n<router-outlet></router-outlet>\n<!-- End Top Bar -->\n"
+module.exports = "\n<!-- Start Top Bar -->\n<div class=\"top-bar\">\n  <div class=\"top-bar-left\">\n    <ul class=\"menu toggle-topbar\">\n      <li><a class=\"menu-text\" class=\"logoTitle\" [routerLink]=\"['/']\">Surprise Box!</a></li>\n    </ul>\n  </div>\n  <img src=\"https://theinspirationroom.com/daily/design/2015/9/google_travel_logo.png\" alt=\"logo\">\n  <div class=\"top-bar-right menu align-right\">\n    <ul class=\"menu\">\n      <li><a [routerLink]=\"['/signup']\">Sign Up</a></li>\n      <li><a [routerLink]=\"['/login']\">Login</a></li>\n      <li><a [routerLink]=\"['/user']\">User Profile</a></li>\n    </ul>\n  </div>\n</div>\n<router-outlet></router-outlet>\n<!-- End Top Bar -->\n"
 
 /***/ }),
 

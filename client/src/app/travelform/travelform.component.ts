@@ -52,8 +52,8 @@ constructor(public travelService: TravelService, private http: Http) { }
   }
 
   saveSurprise(destination, price) {
-    this.formInfo.finalPrice= price
-    this.formInfo.destination=destination
+    this.formInfo.finalPrice= price;
+    this.formInfo.destination= destination;
     console.log(this.formInfo);
     this.travelService.getSurprise (this.formInfo).subscribe(result => console.log(result));
   }
