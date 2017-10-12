@@ -4,10 +4,10 @@ import { Http } from '@angular/http';
 import 'rxjs';
 import { environment } from '../../environments/environment';
 
-const BASEURL = environment.BASEURL;
 
 @Injectable()
 export class MailService {
+    BASEURL = environment.BASEURL;
     private mail: object;
     private options = { withCredentials: true };
 
@@ -22,7 +22,7 @@ export class MailService {
     getMails(name, email) {
         console.log('entrooo');
         return this.http
-            .post(`${BASEURL}/mails/search`, {name, email})
+            .post(`${this.BASEURL}/mails/search`, {name, email})
             .map(res => res.json())
             .catch(this.handleError);
     }

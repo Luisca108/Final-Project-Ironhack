@@ -4,10 +4,10 @@ import { Http } from '@angular/http';
 import 'rxjs';
 import { environment } from '../../environments/environment';
 
-const BASEURL = environment.BASEURL ;
 
 @Injectable()
 export class TravelService {
+  BASEURL = environment.BASEURL ;
   private travel: object;
   private options = { withCredentials: true };
 
@@ -25,14 +25,14 @@ export class TravelService {
   getTravels(origin, passengers, startDate, endDate, maxPrice) {
     console.log('service');
     return this.http
-      .post(`${BASEURL}/travels/search`, {origin, passengers, startDate, endDate, maxPrice })
+      .post(`${this.BASEURL}/travels/search`, {origin, passengers, startDate, endDate, maxPrice })
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   getSurprise(form) {
     console.log('service2' + form);
-    return this.http.post(`${BASEURL}/travels/newtravel`, form, this.options)
+    return this.http.post(`${this.BASEURL}/travels/newtravel`, form, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
