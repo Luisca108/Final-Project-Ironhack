@@ -14,9 +14,11 @@ var result =[]
 var prices = []
 
 router.post ("/search" , (req, res, next) => {
+  result = []
   console.log(req.body);
   var i = Math.floor((Math.random()* destinations.length));
   console.log(destinations[i])
+  result.push(destinations[i])
   rapid.call('GoogleFlightsAPI', 'searchSingleTrip', {
     'apiKey': 'AIzaSyBC1L6z_WHLne1T7V8eIlyc878D4QY-Rp8',
     origin: req.body.origin,
@@ -32,6 +34,7 @@ router.post ("/search" , (req, res, next) => {
 
     i = Math.floor((Math.random() * destinations.length));
     console.log("segunda busqueda a " + destinations[i])
+    result.push(destinations[i])
     rapid.call('GoogleFlightsAPI', 'searchSingleTrip', {
       'apiKey': 'AIzaSyBC1L6z_WHLne1T7V8eIlyc878D4QY-Rp8',
       origin: req.body.origin,
@@ -46,6 +49,8 @@ router.post ("/search" , (req, res, next) => {
         console.log(payload2.trips.tripOption[0].saleTotal)
         i = Math.floor((Math.random() * destinations.length));
         console.log("tercera busqueda a " + destinations[i])
+        result.push(destinations[i])
+
             rapid.call('GoogleFlightsAPI', 'searchSingleTrip', {
       'apiKey': 'AIzaSyBC1L6z_WHLne1T7V8eIlyc878D4QY-Rp8',
       origin: req.body.origin,
@@ -57,7 +62,7 @@ router.post ("/search" , (req, res, next) => {
       maxPrice: req.body.maxPrice
     })
       .on("success", payload3 => {
-        result = []
+      
         result.push(payload.trips.tripOption[0].saleTotal, payload2.trips.tripOption[0].saleTotal, payload3.trips.tripOption[0].saleTotal)
         console.log(result)
         res.status(200).json(result)

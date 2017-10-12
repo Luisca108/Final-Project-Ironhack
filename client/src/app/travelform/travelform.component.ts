@@ -19,7 +19,8 @@ formInfo = {
   startDate: '',
   endDate: '',
   maxPrice: '',
-  finalPrice: ''
+  finalPrice: '',
+  destination:''
 };
 haveFlight: boolean = false;
 search: any;
@@ -50,10 +51,10 @@ constructor(public travelService: TravelService, private http: Http) { }
       this.haveFlight = false; });
   }
 
-  saveSurprise(i) {
-    this.formInfo.finalPrice= i
+  saveSurprise(destination, price) {
+    this.formInfo.finalPrice= price
+    this.formInfo.destination=destination
     console.log(this.formInfo);
-    
     this.travelService.getSurprise (this.formInfo).subscribe(result => console.log(result));
   }
 }
