@@ -28,10 +28,9 @@ export class LoginformComponent implements OnInit {
       console.log(`Login with ${username} ${password}`)
       this.auth.login(username, password)
       .map(user => console.log(user))
-      .subscribe();
-      
+      .subscribe(); 
     } else{
-      console.log("You must set a username and a password");
+      console.log('You must set a username and a password');
     }
   }
 

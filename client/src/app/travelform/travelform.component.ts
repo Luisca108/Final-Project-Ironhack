@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { TravelService } from '../services/travel.service';
-import * as $ from 'jquery';
-
+import * as $ from 'jquery';  
+import { Http } from '@angular/http';
+import { environment } from '../../environments/environment';
+const BASEURL = environment.BASEURL;
 
 @Component({
   selector: 'app-travelform',
@@ -16,14 +18,22 @@ formInfo = {
   passengers: '',
   startDate: '',
   endDate: '',
-  maxPrice: ''
+  maxPrice: '',
+  finalPrice: ''
 };
 haveFlight: boolean = false;
 search: any;
 
-  constructor(public travelService: TravelService) { }
+constructor(public travelService: TravelService, private http: Http) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const prices = $('.prices').html();
+    function getPrice () {
+      $('.prices').each(function(index) {
+        const classes = $(this).attr('class').split(/\s+/);
+      });
+    }
+  }
 
   sendRequest () {
     console.log(this.formInfo);
@@ -38,5 +48,12 @@ search: any;
       console.log(result);
       this.search = result;
       this.haveFlight = false; });
+  }
+
+  saveSurprise(i) {
+    this.formInfo.finalPrice= i
+    console.log(this.formInfo);
+    
+    this.travelService.getSurprise (this.formInfo).subscribe(result => console.log(result));
   }
 }

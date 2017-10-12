@@ -62,7 +62,7 @@ app.use('/travels', travelRoutes);
 app.use('/mails', mailRoutes);
 
 app.use((req, res, next ) => {
-  req.sendFile(__dirname + './public/index.html');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 // catch 404 and forward to error handler

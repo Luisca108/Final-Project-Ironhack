@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require('path');
 const router = express.Router();
+const Travel = require('../models/Travel');
 
 const RapidAPI = require("rapidapi-connect");
 const rapid = new RapidAPI(
@@ -10,6 +11,7 @@ const rapid = new RapidAPI(
 
 const destinations = ['BCN', 'BER', "FRA", "VIE", "BRU", "ZRH", "PRG", "CPH", "MRS", "MUC", "BUD", "ROM", "NAP", "AMS", "WAW", "LON", "STO"];
 var result =[]
+var prices = []
 
 router.post ("/search" , (req, res, next) => {
   console.log(req.body);
@@ -73,5 +75,30 @@ router.post ("/search" , (req, res, next) => {
     res.status(500).json(payload)
   });
 })
+
+router.post("/newtravel", (req, res, next) => {
+  console.log('entramos al back')
+  console.log(req.body)
+  const newTravel = new Travel({
+    origin: req.body.origin,
+    destination:  req.body.destination,
+    passengersAdultCount: req.body.passengers,
+    fromDate: req.body.startDate,
+    toDate: req.body.endDate,
+    maxPrice: req.body.maxPrice,
+    finalPrice: req.body.finalPrice
+  })
+  console.log(newTravel);
+  newTravel.save((err) => {
+    if (err) {
+      return err;
+      console.log(err)
+    } else {
+      console.log("ok")
+      res.status(200).json(newTravel)
+    }
+  });
+});
+
 
 module.exports = router;

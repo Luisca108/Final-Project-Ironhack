@@ -23,12 +23,18 @@ export class TravelService {
   }
 
   getTravels(origin, passengers, startDate, endDate, maxPrice) {
-    console.log('entrooo');
+    console.log('service');
     return this.http
       .post(`${BASEURL}/travels/search`, {origin, passengers, startDate, endDate, maxPrice })
       .map(res => res.json())
       .catch(this.handleError);
   }
 
+  getSurprise(form) {
+    console.log('service2' + form);
+    return this.http.post(`${BASEURL}/travels/newtravel`, form, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
 
 }

@@ -94,7 +94,7 @@ label {
 .card1 {
     margin-top: 20px;
     margin-left: 200px;
-    width: 200px;
+    width: 500px;
 }
 
 .card2 {
@@ -175,7 +175,7 @@ label {
   width: 60px;
   position: relative;
   top: -85px;
-  left: 115px;
+  left: 105px;
   /* Text */
   color: #E35354;
   text-align: center;
