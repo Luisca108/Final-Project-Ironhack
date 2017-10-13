@@ -32,7 +32,7 @@ travel.find()
          to: req.body.email, // list of receivers
          subject: 'Surprise!', // Subject line
          html: '<b>We got a surprise for you </b>' + req.body.name +
-         '<b>You are going to </b>' + result[0].destination + '<b>!!!</b>'
+         '<b><br>You are going to </b>' + result[0].destination + '<b>!!!</b>'
          //, // plaintext body
          // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
      };
