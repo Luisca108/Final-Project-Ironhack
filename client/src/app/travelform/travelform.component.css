@@ -37,12 +37,14 @@ button {
 
 label {
     color: #1583cc;
-    font-family: 'Lobster', cursive;
+    font-family: 'Montserrat',
+    sans-serif;
     font-size: x-large;
 }
 
 .help-text {
-    font-family: 'Lobster', cursive;
+    font-family: 'Montserrat',
+    sans-serif;
     color: black;
     font-size: medium;
 }
